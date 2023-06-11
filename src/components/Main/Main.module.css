@@ -1,0 +1,10 @@
+.main {
+    max-height: calc(100vh - 80px);
+    overflow: hidden;
+}
+
+.main__content {
+    display: grid;
+    grid-template-columns: repeat(2, 0.9fr);
+    grid-column-gap: 20px;
+}

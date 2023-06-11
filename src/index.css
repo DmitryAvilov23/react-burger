@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px !important;
+  color: #8585AD !important;
+}
+
+.button.active, .button:hover {
+  color: #F2F2F3 !important;
+  fill: #F2F2F3 !important;
+}
+
+.button__text {
+  padding-left: 8px;
+}
+
+.button.right {
+  margin-left: auto;
+  padding-right: 0 !important;
+}
+
+.button.left {
+  padding-left: 0 !important;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 98%;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8585AD;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #2F2F37;
+}
