@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import IngredientGroups from './components/Ingredient-Groups/Ingredient-Groups';
 import Tabs from './components/Tabs/Tabs';
-import { API_URL } from '../../utils/api';
+
+import { productTypes } from '../../utils/types';
 
 class BurgerIngredients extends React.Component {
     state = {
-        data: [],
         activeTab: 'bun'
     };
 
@@ -14,30 +15,6 @@ class BurgerIngredients extends React.Component {
         super(props);
 
         this.updateCurrentTab = this.updateCurrentTab.bind(this);
-    }
-
-    async componentDidMount() {
-        await this.getIngredients();
-    }
-
-    getIngredients = async () => {
-        const url = API_URL;
-
-        try {
-            const response = await fetch(url);
-
-            if (response.ok) {
-                const { data } = await response.json();
-                this.setState({ ...this.state, data });
-            } else {
-                this.setState({ ...this.state, data: []  });
-                console.error('error response', response.status);
-            }
-
-        } catch (e) {
-            console.error('ERROR', e);
-            this.setState({ ...this.state, data: []  });
-        }
     }
 
     scrollToGroup = (id) => {
@@ -52,13 +29,19 @@ class BurgerIngredients extends React.Component {
     }
 
     render() {
+        const { data } = this.props;
+
         return (
             <section id='groupsSection'>
                 <Tabs activeTab={this.state.activeTab} updateCurrentTab={this.updateCurrentTab} />
-                <IngredientGroups ingredientsData={this.state.data}/>
+                <IngredientGroups ingredientsData={data}/>
             </section>
         )
     }
+}
+
+BurgerIngredients.protoType = {
+    data: PropTypes.arrayOf(productTypes).isRequired
 }
 
 export default BurgerIngredients;

@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import BurgerConstructorStyles from './Burger-Constructor.module.css'
 
-import { CART_DATA } from '../../utils/cart-data';
 import { getIngredientsGroup } from '../../utils/get-ingredients-group';
+import { productTypes } from '../../utils/types';
 
 import Cart from './components/Cart/Cart';
 import Modal from '../Modal/Modal';
@@ -13,7 +14,6 @@ import OrderDetails from './components/Order-Details/Order-Details';
 
 class BurgerConstructor extends React.Component {
     state = {
-        cartData: CART_DATA,
         isModalVisible: false
     };
 
@@ -26,9 +26,13 @@ class BurgerConstructor extends React.Component {
     }
 
     render() {
-        const buns = getIngredientsGroup(this.state.cartData, 'bun');
-        const souces = getIngredientsGroup(this.state.cartData, 'souce');
-        const mains = getIngredientsGroup(this.state.cartData, 'main');
+        const { data } = this.props;
+
+        const buns = getIngredientsGroup(data, 'bun');
+        const souces = getIngredientsGroup(data, 'souce');
+        const mains = getIngredientsGroup(data, 'main');
+
+        console.log('BUNS', buns);
 
         const mainCartContent = [...mains, ...souces];
 
@@ -59,6 +63,10 @@ class BurgerConstructor extends React.Component {
             </section>
         )
     }
+}
+
+BurgerConstructor.protoType = {
+    data: PropTypes.arrayOf(productTypes).isRequired
 }
 
 export default BurgerConstructor;

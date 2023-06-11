@@ -19,9 +19,9 @@ class Cart extends React.Component {
             <div className={BurgerConstructorStyles.constructor__cart}>
                 <ul className={BurgerConstructorStyles.constructor__list + ' pl-0 order'}  >
                     <ConstructorElem 
-                        title={buns[0].name + ' (верх)'}
-                        img={buns[0].image_mobile}
-                        price={buns[0].price}
+                        title={buns[0]?.name + ' (верх)'}
+                        img={buns[0]?.image_mobile}
+                        price={buns[0]?.price}
                         isLocked={true}
                         type="top"
                     />
@@ -40,9 +40,9 @@ class Cart extends React.Component {
 
                 <ul className={BurgerConstructorStyles.constructor__list + ' pl-0 order'}  >
                     <ConstructorElem 
-                        title={buns[0].name + ' (низ)'}
-                        img={buns[0].image_mobile}
-                        price={buns[0].price}
+                        title={buns[0]?.name + ' (низ)'}
+                        img={buns[0]?.image_mobile}
+                        price={buns[0]?.price}
                         isLocked={true}
                         type="bottom"
                     />
