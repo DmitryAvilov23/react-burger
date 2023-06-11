@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const productTypes = {
+export const productTypes = PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
@@ -13,4 +13,4 @@ export const productTypes = {
     image_mobile: PropTypes.string,
     image_large: PropTypes.string,
     __v: PropTypes.number
-};
+});

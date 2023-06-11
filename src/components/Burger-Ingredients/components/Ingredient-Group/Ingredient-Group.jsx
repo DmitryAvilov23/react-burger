@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import BurgerIngredientsStyles from '../../Burgrer-Ingredients.module.css';
 import Ingredient from "../Ingredient/Ingredient";
@@ -31,7 +31,7 @@ class IngredientGroup extends React.Component {
 }
 
 IngredientGroup.protoType = {
-    groupData: PropTypes.array(productTypes),
+    groupData: PropTypes.arrayOf(productTypes),
     title: PropTypes.string.isRequired,
     groupID: PropTypes.string.isRequired
 }

@@ -31,7 +31,7 @@ class IngredientGroups extends React.Component {
 }
 
 IngredientGroups.protoType = {
-    ingredientsData: PropTypes.array(productTypes)
+    ingredientsData: PropTypes.arrayOf(productTypes)
 }
 
 export default IngredientGroups;

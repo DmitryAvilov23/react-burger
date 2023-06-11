@@ -31,7 +31,7 @@ class Tabs extends React.Component {
 
 Tabs.protoType = {
     activeTab: PropTypes.string,
-    updateCurrentTab: PropTypes.func
+    updateCurrentTab: PropTypes.object
 }
 
 export default Tabs;
